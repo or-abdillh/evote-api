@@ -1,0 +1,21 @@
+{
+  "name": "evote-api",
+  "version": "1.0.0",
+  "description": "Application backend for evote-client",
+  "main": "server.js",
+  "scripts": { 
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "API",
+    "RESTAPI"
+  ],
+  "author": "Oka R. Abdillah",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15"
+  }
+}
