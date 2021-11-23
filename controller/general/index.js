@@ -15,11 +15,13 @@ const login = require('./modules/login.js');
 const logout = require('./modules/logout.js');
 const profile = require('./modules/getProfile.js');
 const getEvent = require('./modules/getEvent.js');
+const getCandidates = require('./modules/getCandidates.js');
 
 module.exports = {
    index,
    login,
    logout,
    profile,
-   getEvent
+   getEvent,
+   getCandidates
 }

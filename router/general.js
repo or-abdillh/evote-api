@@ -19,6 +19,9 @@ const general = (app, handler) => {
    
    //Get event
    app.route('/general/event').get(handler.getEvent);
+   
+   //Get all candidates
+   app.route('/general/candidates').get(handler.getCandidates)
 }
 
 module.exports = general;
