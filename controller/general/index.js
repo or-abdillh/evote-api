@@ -14,10 +14,12 @@ const index = (req, res) => {
 const login = require('./modules/login.js');
 const logout = require('./modules/logout.js');
 const profile = require('./modules/getProfile.js');
+const getEvent = require('./modules/getEvent.js');
 
 module.exports = {
    index,
    login,
    logout,
-   profile
+   profile,
+   getEvent
 }

@@ -16,6 +16,9 @@ const general = (app, handler) => {
    
    //Get profile
    app.route('/general/profile').get(handler.profile);
+   
+   //Get event
+   app.route('/general/event').get(handler.getEvent);
 }
 
 module.exports = general;
