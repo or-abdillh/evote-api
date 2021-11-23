@@ -13,9 +13,11 @@ const index = (req, res) => {
 //Import local modules
 const login = require('./modules/login.js');
 const logout = require('./modules/logout.js');
+const profile = require('./modules/getProfile.js');
 
 module.exports = {
    index,
    login,
-   logout
+   logout,
+   profile
 }

@@ -13,6 +13,9 @@ const general = (app, handler) => {
    
    //Logout
    app.route('/general/logout').get(handler.logout);
+   
+   //Get profile
+   app.route('/general/profile').get(handler.profile);
 }
 
 module.exports = general;
