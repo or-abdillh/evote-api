@@ -10,6 +10,9 @@ const general = (app, handler) => {
    
    //Login
    app.route('/general/login').post(handler.login);
+   
+   //Logout
+   app.route('/general/logout').get(handler.logout);
 }
 
-module.exports = general
+module.exports = general;
