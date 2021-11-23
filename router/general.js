@@ -7,6 +7,9 @@
 const general = (app, handler) => {
    //Testing
    app.route('/general/').get(handler.index);
+   
+   //Login
+   app.route('/general/login').post(handler.login);
 }
 
 module.exports = general

@@ -1,14 +1,13 @@
 'use strict'
 
 //Response handler
-//Give two parameter res and msg
-const createJSON = (res, code, status, msg) => {
+const createJSON = (res, code, status, response) => {
    res.status(200);
    return {
       code,
       status,
       request_create_at: new Date().toLocaleString('id'),
-      response: msg
+      response
    }
    res.end();
 }
