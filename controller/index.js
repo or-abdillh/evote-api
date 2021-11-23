@@ -1,15 +1,10 @@
 'use strict'
 
+const response = require('../response');
+
 //index Controller
 const index = (req, res) => {
-   res.status(200);
-   res.json({
-      status: 'success',
-      code: 200,
-      request_create_at: new Date().toLocaleString('id'),
-      response: 'This is response example from index controller'
-   });
-   res.end();
+   response.success(res, 'This is response example from Index controller');
 }
 
 //Require controller for general route
