@@ -2,12 +2,12 @@
 
 //Response handler
 const createJSON = (res, code, status, response) => {
-   res.status(200);
+   res.status(code);
    return {
       code,
       status,
-      request_create_at: new Date().toLocaleString('id'),
-      response
+      response,
+      request_create_at: new Date().toLocaleString('id')
    }
    res.end();
 }
@@ -19,22 +19,22 @@ const success = (res, msg) => {
 
 //forbidden
 const forbidden = (res, msg) => {
-   res.json( createJSON(res, 403, 'Access denied', msg) );
+   res.send( createJSON(res, 403, 'Ilegal Action or Access Denied', msg) );
 }
 
 //Interal server error
 const serverError = (res, msg) => {
-   res.json( createJSON(res, 501, 'Internal server error', msg) );
+   res.send( createJSON(res, 501, 'Internal server error', msg) );
 }
 
 //Content not found
 const notFound = (res, msg) => {
-   res.json( createJSON(res, 404, 'Content not fouond', msg) );
+   res.send( createJSON(res, 404, 'Content not found', msg) );
 }
 
 //Empty response
 const empty = (res, msg) => {
-   res.json( createJSON(res, 204, 'Empty response', msg) );
+   res.send( createJSON(res, 204, 'Empty response', msg) );
 }
 
 //Export all handler to one module

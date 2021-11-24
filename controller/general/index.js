@@ -16,6 +16,7 @@ const logout = require('./modules/logout.js');
 const profile = require('./modules/getProfile.js');
 const getEvent = require('./modules/getEvent.js');
 const getCandidates = require('./modules/getCandidates.js');
+const voting = require('./modules/voting.js');
 
 module.exports = {
    index,
@@ -23,5 +24,6 @@ module.exports = {
    logout,
    profile,
    getEvent,
-   getCandidates
+   getCandidates,
+   voting
 }

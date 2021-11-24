@@ -22,6 +22,9 @@ const general = (app, handler) => {
    
    //Get all candidates
    app.route('/general/candidates').get(handler.getCandidates)
+   
+   //Submit voting
+   app.route('/general/voting').post(handler.voting);
 }
 
 module.exports = general;
