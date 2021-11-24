@@ -8,6 +8,7 @@ const tokenValidation = require('../../utils/tokenValidation.js');
 module.exports = ( req, res ) => {
    //Get token fro headers
    const token = req.headers.token;
+   if (token === undefined) response.forbidden(res, 'Token required');
    
    //Create sql
    const sql = 'SELECT * FROM Event';

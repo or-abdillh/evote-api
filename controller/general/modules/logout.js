@@ -7,11 +7,12 @@ const conn = require('../../../connection');
 //Purpose logout system
 module.exports = ( req, res ) => {
   //Get token from Header and generate new token
-  const TOKEN = req.headers.token;
+  const token = req.headers.token;
   const newToken = randomToken(100);
+  if (token === undefined) response.forbidden(res, 'Token required');
   
   //Create SQL and Connect
-  const sql = `UPDATE Accounts SET token = "${newToken}" WHERE token = "${TOKEN}"`;
+  const sql = `UPDATE Accounts SET token = "${newToken}" WHERE token = "${token}"`;
   conn.query(sql, (err, rows) => {
      if (err) response.serverError(res, err);
      else {

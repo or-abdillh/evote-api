@@ -8,6 +8,7 @@ const tokenValidation = require('../../utils/tokenValidation.js');
 module.exports = ( req, res ) => {
    //Get token from headers
    const token = req.headers.token;
+   if (token === undefined) response.forbidden(res, 'Token required');
    
    //Create SQL and Connecin callback
    const sql = `SELECT Accounts.fullname, Accounts.status_vote, Accounts.gender, Jobs.job_name 
