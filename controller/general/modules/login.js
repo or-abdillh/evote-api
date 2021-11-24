@@ -17,7 +17,7 @@ module.exports = ( req, res ) => {
          //Succes login
          if (rows.length > 0) {
             //generate TOKEN
-            const TOKEN = randomToken(100);
+            const TOKEN = randomToken(250);
             //Save TOKEN to DB by username
             sql = `UPDATE Accounts SET token = "${TOKEN}" WHERE username = "${username}"`;
             conn.query(sql, (err, rows) => {
