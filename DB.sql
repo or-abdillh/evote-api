@@ -1,3 +1,4 @@
+
 -- MariaDB dump 10.19  Distrib 10.6.4-MariaDB, for Android (aarch64)
 --
 -- Host: localhost    Database: EvoteDB
@@ -33,6 +34,7 @@ CREATE TABLE `Accounts` (
   `create_at` bigint(50) NOT NULL,
   `gender` varchar(6) NOT NULL,
   `time_stamp` bigint(50) DEFAULT NULL,
+  `token` varchar(250) NOT NULL,
   PRIMARY KEY (`username`),
   KEY `Profiles_job_id_Jobs_job_id` (`job_id`),
   KEY `Profiles_candidate_id_Candidates_candidate_id` (`candidate_id`),
@@ -47,7 +49,7 @@ CREATE TABLE `Accounts` (
 
 LOCK TABLES `Accounts` WRITE;
 /*!40000 ALTER TABLE `Accounts` DISABLE KEYS */;
-INSERT INTO `Accounts` VALUES ('galih','galih','Galih',1,2,1,16754353432,1675372362,'male',NULL),('sandhika','sandhika','Sandhika',NULL,1,0,16754353432,1675372362,'male',NULL);
+INSERT INTO `Accounts` VALUES ('atiya','atiya','Atiya',2,1,1,1735272826,1672537287382,'female',1637766889270,'7pzc6fiu1359ke09ygnzepi8l0guumjkl20oqlsdj8kscrnqf1e18y3sjfjm3e0yt2v7dz4043tzaeaze58tmr8w7zldjweuj1tdj4ug9iqq16tlowqqh4yp6bz9ga5eikgdih61tq5xqsjv24hbk8m1oq8xo527sys246i13y1qv290ylarb89hl9t28pdijbd0xbqqgp1xiewlxie1rpcufmnyv38lbgfuvltv4bj6h75ykp69gwsogq'),('sandhika','sandhika','Sandhika',2,2,1,1735272826,1672537287382,'male',1637767272625,'hj2cq290wipndkmvqb17xp4ozyyhkleass2z87630ffmwy6m5qjwdplvtxdp63eynrqz1r70byjs5am8v6cvf9qy5yeb5ejlqh7njcp5irtscqwsy6o3scvxhsxoc88giz6gihn42br5jyiyilppr6pxq0eibxxyvt5d3cc3axipqkan296ax9mj7npo0dujphsrqhq00mzlnucm5llqrlp1mkyqvzhqgup21hh1ta91hy6k38voqj2vpu');
 /*!40000 ALTER TABLE `Accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -68,7 +70,7 @@ CREATE TABLE `Candidates` (
   `last_modified` bigint(50) NOT NULL,
   `create_at` bigint(50) NOT NULL,
   PRIMARY KEY (`candidate_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +79,7 @@ CREATE TABLE `Candidates` (
 
 LOCK TABLES `Candidates` WRITE;
 /*!40000 ALTER TABLE `Candidates` DISABLE KEYS */;
-INSERT INTO `Candidates` VALUES (1,1,'Fulan bin Fulan','/public/img-34343.png','Lana bin Lana','/public/img-4343.png',1553127353,672372353),(2,2,'Fulan binti Fulan','/public/img-34343.png','Lana binti Lana','/public/img-4343.png',1553127353,672372353);
+INSERT INTO `Candidates` VALUES (1,1,'Fulan bin Fulan','/public/img-34343.png','Lana bin Lana','/public/img-4343.png',1553127353,672372353),(2,2,'Fulan binti Fulan','/public/img-34343.png','Lana binti Lana','/public/img-4343.png',1553127353,672372353),(3,1,'Fulan bin Fulan','/profle.jpg','Fulanah bin Fulanah','/profile.jpg',24242123134,1414141443);
 /*!40000 ALTER TABLE `Candidates` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +91,7 @@ DROP TABLE IF EXISTS `Event`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Event` (
-  `event_title` varchar(55) NOT NULL,
+  `event_title` varchar(250) DEFAULT NULL,
   `event_logo` varchar(50) NOT NULL,
   `event_start_at` bigint(50) NOT NULL,
   `event_finish_at` bigint(50) NOT NULL
@@ -102,6 +104,7 @@ CREATE TABLE `Event` (
 
 LOCK TABLES `Event` WRITE;
 /*!40000 ALTER TABLE `Event` DISABLE KEYS */;
+INSERT INTO `Event` VALUES ('Pemilihan Ketua Umum dan Wakil Ketua Umum HIMA TI Polihasnur Tahun 2020/2021','/logo.png',1637726400000,1637812800000);
 /*!40000 ALTER TABLE `Event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,4 +141,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-23 19:44:03
+-- Dump completed on 2021-11-25  8:48:30
