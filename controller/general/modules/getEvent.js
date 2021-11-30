@@ -11,7 +11,7 @@ module.exports = ( req, res ) => {
    if (token === undefined) response.forbidden(res, 'Token required');
    
    //Create sql
-   const sql = 'SELECT * FROM Event';
+   const sql = 'SELECT * FROM Event ; SELECT username FROM Accounts WHERE status_vote = "1"';
    
    //Main handler
    const getEvent = valid => {
@@ -19,8 +19,9 @@ module.exports = ( req, res ) => {
          conn.query(sql, (err, rows) => {
             if (err) response.serverError(res, err);
             else {
-               if (rows.length > 0) response.success(res, rows[0]);
-               else response.empty(res, rows);
+            	const results = rows[0];
+            	results[0].count = rows[1].length;
+            	response.success(res, results);
             }
          });
       } else response.forbidden(res, 'Your token invalid');

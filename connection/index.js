@@ -7,7 +7,8 @@ const conn = mysql.createConnection({
    host: 'localhost',
    user: 'root',
    password: 'root',
-   database: 'EvoteDB'
+   database: 'EvoteDB',
+   multipleStatements: true
 });
 
 //Connect
