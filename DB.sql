@@ -1,4 +1,3 @@
-
 -- MariaDB dump 10.19  Distrib 10.6.4-MariaDB, for Android (aarch64)
 --
 -- Host: localhost    Database: EvoteDB
@@ -49,7 +48,7 @@ CREATE TABLE `Accounts` (
 
 LOCK TABLES `Accounts` WRITE;
 /*!40000 ALTER TABLE `Accounts` DISABLE KEYS */;
-INSERT INTO `Accounts` VALUES ('atiya','atiya','Atiya',2,1,1,1735272826,1672537287382,'female',1637766889270,'7pzc6fiu1359ke09ygnzepi8l0guumjkl20oqlsdj8kscrnqf1e18y3sjfjm3e0yt2v7dz4043tzaeaze58tmr8w7zldjweuj1tdj4ug9iqq16tlowqqh4yp6bz9ga5eikgdih61tq5xqsjv24hbk8m1oq8xo527sys246i13y1qv290ylarb89hl9t28pdijbd0xbqqgp1xiewlxie1rpcufmnyv38lbgfuvltv4bj6h75ykp69gwsogq'),('sandhika','sandhika','Sandhika',2,2,1,1735272826,1672537287382,'male',1637767272625,'hj2cq290wipndkmvqb17xp4ozyyhkleass2z87630ffmwy6m5qjwdplvtxdp63eynrqz1r70byjs5am8v6cvf9qy5yeb5ejlqh7njcp5irtscqwsy6o3scvxhsxoc88giz6gihn42br5jyiyilppr6pxq0eibxxyvt5d3cc3axipqkan296ax9mj7npo0dujphsrqhq00mzlnucm5llqrlp1mkyqvzhqgup21hh1ta91hy6k38voqj2vpu');
+INSERT INTO `Accounts` VALUES ('atiya','atiya','Atiya',2,1,0,1735272826,1672537287382,'female',1637766889270,'b949w4kzwt2bvetsrw3v16fzrzju2zuwwsm1v5hx9l33hvn8ttr2k6ouex8quwggubi5et93oju15vsf4dxnupwyc7ut6x6v6t9g9ufhfiqqu6qxuskcln5rdxtn89wa00fvqugd2za6u981lgbzval9w047pkd35nsfx3ohdif2p60c3ksq56wyi06wlc15203d3ocj6rbzdi5qtmb69wyn8kvqhjw5zh95frycbx33mqh6f4vv9x3x2g'),('sandhika','sandhika','Sandhika',2,2,1,1735272826,1672537287382,'male',1637767272625,'8i5lphlhdtj8spk8kx2ouw6xq1x9n6yziosodaabtnqherad17vriur4qsqb6ixyyahwmgg4diji08kjodru32ko85v5l52mvlmp9ncrvryxj42xqeeelut6qq9ndu02tkr6bgvtb88uk746x70yxhwy8twqaclh4hez4m3rbtrzcl87jdlj6z8ebli9g4g5pvjata6m2zuhgbls42mggty9ey6qasufjq5v9bsv312vuyy1um5jxtux2k');
 /*!40000 ALTER TABLE `Accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +93,8 @@ CREATE TABLE `Event` (
   `event_title` varchar(250) DEFAULT NULL,
   `event_logo` varchar(50) NOT NULL,
   `event_start_at` bigint(50) NOT NULL,
-  `event_finish_at` bigint(50) NOT NULL
+  `event_finish_at` bigint(50) NOT NULL,
+  `passcode` char(8) DEFAULT 'passcode'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -104,7 +104,7 @@ CREATE TABLE `Event` (
 
 LOCK TABLES `Event` WRITE;
 /*!40000 ALTER TABLE `Event` DISABLE KEYS */;
-INSERT INTO `Event` VALUES ('Pemilihan Ketua Umum dan Wakil Ketua Umum HIMA TI Polihasnur Tahun 2020/2021','/logo.png',1637726400000,1637812800000);
+INSERT INTO `Event` VALUES ('Pemilihan Ketua Umum dan Wakil Ketua Umum HIMA TI Polihasnur Tahun 2020/2021','/logo.png',1638244800000,1638331200000,'passcode');
 /*!40000 ALTER TABLE `Event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,4 +141,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-25  8:48:30
+-- Dump completed on 2021-12-01 14:40:51
