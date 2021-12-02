@@ -15,6 +15,9 @@ const router = app => {
 
    //Token authenication from client
    app.route('/auth').get(controller.auth);
+
+   //Logout handler
+   app.route('/logout').get(controller.logout);
    
    //Use generalRouter and generalController
    generalRouter(app, generalController);

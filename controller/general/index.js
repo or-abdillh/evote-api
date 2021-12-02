@@ -12,7 +12,6 @@ const index = (req, res) => {
 
 //Import local modules
 const login = require('./modules/login.js');
-const logout = require('./modules/logout.js');
 const profile = require('./modules/getProfile.js');
 const getEvent = require('./modules/getEvent.js');
 const getCandidates = require('./modules/getCandidates.js');
@@ -21,7 +20,6 @@ const voting = require('./modules/voting.js');
 module.exports = {
    index,
    login,
-   logout,
    profile,
    getEvent,
    getCandidates,

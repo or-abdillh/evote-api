@@ -11,9 +11,6 @@ const general = (app, handler) => {
    //Login
    app.route('/general/login').post(handler.login);
    
-   //Logout
-   app.route('/general/logout').get(handler.logout);
-   
    //Get profile
    app.route('/general/profile').get(handler.profile);
    

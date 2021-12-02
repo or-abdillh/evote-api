@@ -4,6 +4,9 @@ const response = require('../response');
 const tokenValidation = require('./utils/tokenValidation.js');
 const conn = require('../connection');
 
+//Import module controller as index route
+const logout = require('./general/modules/logout.js');
+
 //index Controller
 const index = (req, res) => {
    response.success(res, 'This is response example from Index controller');
@@ -32,5 +35,6 @@ const general = require('./general');
 module.exports = {
    index,
    auth,
-   general
+   general,
+   logout
 }
