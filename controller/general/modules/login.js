@@ -8,7 +8,7 @@ module.exports = ( req, res ) => {
    //Get data from body
    const username = req.body.username;
    const password = req.body.password;
-
+   
    //console.log(req.headers)   
    //Create SQL and Connect SQL
    let sql = `SELECT * FROM Accounts WHERE username = "${username}" AND password = "${password}"`;

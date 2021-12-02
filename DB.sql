@@ -1,144 +1,39 @@
--- MariaDB dump 10.19  Distrib 10.6.4-MariaDB, for Android (aarch64)
---
--- Host: localhost    Database: EvoteDB
--- ------------------------------------------------------
--- Server version	10.6.4-MariaDB
+DROP TABLE IF EXISTS Profiles;
+DROP TABLE IF EXISTS Candidates;
+DROP TABLE IF EXISTS Jobs;
+DROP TABLE IF EXISTS Event;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Table structure for table `Accounts`
---
+CREATE TABLE Profiles (
+username VARCHAR(15) NOT NULL PRIMARY KEY,
+password VARCHAR(15) NOT NULL,
+fullname VARCHAR(30) NOT NULL,
+token VARCHAR(250) NOT NULL,
+status_vote BOOLEAN NOT NULL,
+candidate_id INT(10),
+job_id INT(10) NOT NULL,
+gender VARCHAR(6) NOT NULL,
+last_modified BIGINT(50) NOT NULL,
+time_stamp BIGINT(50) NOT NULL);
 
-DROP TABLE IF EXISTS `Accounts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Accounts` (
-  `username` varchar(15) NOT NULL,
-  `password` varchar(15) NOT NULL,
-  `fullname` varchar(30) NOT NULL,
-  `candidate_id` int(10) DEFAULT NULL,
-  `job_id` int(10) NOT NULL,
-  `status_vote` tinyint(1) NOT NULL,
-  `last_modified` bigint(50) NOT NULL,
-  `create_at` bigint(50) NOT NULL,
-  `gender` varchar(6) NOT NULL,
-  `time_stamp` bigint(50) DEFAULT NULL,
-  `token` varchar(250) NOT NULL,
-  PRIMARY KEY (`username`),
-  KEY `Profiles_job_id_Jobs_job_id` (`job_id`),
-  KEY `Profiles_candidate_id_Candidates_candidate_id` (`candidate_id`),
-  CONSTRAINT `Profiles_candidate_id_Candidates_candidate_id` FOREIGN KEY (`candidate_id`) REFERENCES `Candidates` (`candidate_id`),
-  CONSTRAINT `Profiles_job_id_Jobs_job_id` FOREIGN KEY (`job_id`) REFERENCES `Jobs` (`job_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE Candidates (
+candidate_id INT(10) AUTO_INCREMENT NOT NULL PRIMARY KEY,
+chairman_name VARCHAR(30) NOT NULL,
+chairman_image VARCHAR(50) NOT NULL,
+vice_chairman_name VARCHAR(30) NOT NULL,
+vice_chairman_image VARCHAR(50) NOT NULL,
+candidate_number INT(2) NOT NULL);
 
---
--- Dumping data for table `Accounts`
---
+CREATE TABLE Jobs (
+job_id INT(10) AUTO_INCREMENT NOT NULL PRIMARY KEY,
+job_name VARCHAR(30) NOT NULL);
 
-LOCK TABLES `Accounts` WRITE;
-/*!40000 ALTER TABLE `Accounts` DISABLE KEYS */;
-INSERT INTO `Accounts` VALUES ('atiya','atiya','Atiya',2,1,0,1735272826,1672537287382,'female',1637766889270,'b949w4kzwt2bvetsrw3v16fzrzju2zuwwsm1v5hx9l33hvn8ttr2k6ouex8quwggubi5et93oju15vsf4dxnupwyc7ut6x6v6t9g9ufhfiqqu6qxuskcln5rdxtn89wa00fvqugd2za6u981lgbzval9w047pkd35nsfx3ohdif2p60c3ksq56wyi06wlc15203d3ocj6rbzdi5qtmb69wyn8kvqhjw5zh95frycbx33mqh6f4vv9x3x2g'),('sandhika','sandhika','Sandhika',2,2,1,1735272826,1672537287382,'male',1637767272625,'8i5lphlhdtj8spk8kx2ouw6xq1x9n6yziosodaabtnqherad17vriur4qsqb6ixyyahwmgg4diji08kjodru32ko85v5l52mvlmp9ncrvryxj42xqeeelut6qq9ndu02tkr6bgvtb88uk746x70yxhwy8twqaclh4hez4m3rbtrzcl87jdlj6z8ebli9g4g5pvjata6m2zuhgbls42mggty9ey6qasufjq5v9bsv312vuyy1um5jxtux2k');
-/*!40000 ALTER TABLE `Accounts` ENABLE KEYS */;
-UNLOCK TABLES;
+CREATE TABLE Event (
+event_start_at BIGINT(50) NOT NULL,
+event_finish_at BIGINT(50) NOT NULL,
+event_title VARCHAR(250) NOT NULL,
+event_logo VARCHAR(100) NOT NULL,
+passcode INT(8) NOT NULL DEFAULT 00000000);
 
---
--- Table structure for table `Candidates`
---
-
-DROP TABLE IF EXISTS `Candidates`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Candidates` (
-  `candidate_id` int(10) NOT NULL AUTO_INCREMENT,
-  `candidate_number` int(2) NOT NULL,
-  `chairman_name` varchar(30) NOT NULL,
-  `chairman_image` varchar(50) NOT NULL,
-  `vice_chairman_name` varchar(30) NOT NULL,
-  `vice_chairman_image` varchar(50) NOT NULL,
-  `last_modified` bigint(50) NOT NULL,
-  `create_at` bigint(50) NOT NULL,
-  PRIMARY KEY (`candidate_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Candidates`
---
-
-LOCK TABLES `Candidates` WRITE;
-/*!40000 ALTER TABLE `Candidates` DISABLE KEYS */;
-INSERT INTO `Candidates` VALUES (1,1,'Fulan bin Fulan','/public/img-34343.png','Lana bin Lana','/public/img-4343.png',1553127353,672372353),(2,2,'Fulan binti Fulan','/public/img-34343.png','Lana binti Lana','/public/img-4343.png',1553127353,672372353),(3,1,'Fulan bin Fulan','/profle.jpg','Fulanah bin Fulanah','/profile.jpg',24242123134,1414141443);
-/*!40000 ALTER TABLE `Candidates` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Event`
---
-
-DROP TABLE IF EXISTS `Event`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Event` (
-  `event_title` varchar(250) DEFAULT NULL,
-  `event_logo` varchar(50) NOT NULL,
-  `event_start_at` bigint(50) NOT NULL,
-  `event_finish_at` bigint(50) NOT NULL,
-  `passcode` char(8) DEFAULT 'passcode'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Event`
---
-
-LOCK TABLES `Event` WRITE;
-/*!40000 ALTER TABLE `Event` DISABLE KEYS */;
-INSERT INTO `Event` VALUES ('Pemilihan Ketua Umum dan Wakil Ketua Umum HIMA TI Polihasnur Tahun 2020/2021','/logo.png',1638244800000,1638331200000,'passcode');
-/*!40000 ALTER TABLE `Event` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Jobs`
---
-
-DROP TABLE IF EXISTS `Jobs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Jobs` (
-  `job_id` int(10) NOT NULL AUTO_INCREMENT,
-  `job_name` varchar(30) NOT NULL,
-  PRIMARY KEY (`job_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Jobs`
---
-
-LOCK TABLES `Jobs` WRITE;
-/*!40000 ALTER TABLE `Jobs` DISABLE KEYS */;
-INSERT INTO `Jobs` VALUES (1,'Dosen'),(2,'Mahasiswa'),(3,'Pengurus');
-/*!40000 ALTER TABLE `Jobs` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-12-01 14:40:51
+ALTER TABLE Profiles ADD CONSTRAINT Profiles_candidate_id_Candidates_candidate_id FOREIGN KEY (candidate_id) REFERENCES Candidates(candidate_id);
+ALTER TABLE Profiles ADD CONSTRAINT Profiles_job_id_Jobs_job_id FOREIGN KEY (job_id) REFERENCES Jobs(job_id);
