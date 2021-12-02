@@ -8,7 +8,7 @@ const conn = require('../../../connection');
 module.exports = ( req, res ) => {
   //Get token from Header and generate new token
   const token = req.headers.token;
-  const newToken = randomToken(100);
+  const newToken = randomToken(250);
   if (token === undefined) response.forbidden(res, 'Token required');
   
   //Create SQL and Connect
