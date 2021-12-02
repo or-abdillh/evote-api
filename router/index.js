@@ -12,6 +12,9 @@ const router = app => {
    
    //Index route
    app.route('/').get(controller.index)
+
+   //Token authenication from client
+   app.route('/auth').get(controller.auth);
    
    //Use generalRouter and generalController
    generalRouter(app, generalController);
