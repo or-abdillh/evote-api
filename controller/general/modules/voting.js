@@ -42,7 +42,7 @@ module.exports = ( req, res ) => {
             const now = new Date().getTime();
             //Check isEventAvailable ?
             if ( now >= eventStartAt && now <= eventFinishAt ) submitVote(now); //Event is available
-            else response.forbidden(res, 'Event not available');
+            else response.forbidden(res, 'Event tidak tersedia');
          }
       })
    }
