@@ -14,19 +14,12 @@ const app = express();
 //Use modules
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-const allowedOrigins = ["https://evote-himati.vercel-app"];
-app.use(cors({
-  origin: function(origin, callback){
-    if(!origin) return callback(null, true);
-    if(allowedOrigins.indexOf(origin) === -1){
-      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  }
-
-}));
+app.use(cors());
+app.use((req, res, next) => {
+   res.header("Access-Control-Allow-Origin", "*");
+   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+   next();
+});
 
 //Router
 router(app);
