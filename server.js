@@ -22,5 +22,5 @@ router(app);
 //Test server
 app.listen(PORT, err => {
    if (err) throw err;
-   console.log(`Server has running at localhost:${PORT}`);
+   console.log(`Server has running at PORT ${PORT}`);
 })
