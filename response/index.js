@@ -1,9 +1,12 @@
 'use strict'
 
 //Response handler
-const createJSON = (res, code, status, response) => {
+const sendHeader = res => {
    res.header("Access-Control-Allow-Origin", "*");
    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+}
+
+const createJSON = (res, code, status, response) => {
    res.status(code);
    return {
       code,
@@ -16,6 +19,7 @@ const createJSON = (res, code, status, response) => {
 
 //success
 const success = (res, msg) => {
+   sendHeader(res);
    res.json( createJSON(res, 200, 'Success', msg) );
 }
 
