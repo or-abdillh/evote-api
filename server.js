@@ -8,7 +8,7 @@ const connection = require('./connection');
 const router = require('./router');
 
 //Setup Service
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const app = express();
 
 //Use modules
