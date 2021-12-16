@@ -12,11 +12,14 @@ module.exports = (app, handler) => {
    app.route('/master/login').post(handler.login);
    
    //Get all Accounts
-   app.route('/master/accounts').post(handler.getAccounts);
+   app.route('/master/accounts').get(handler.getAccounts);
    
    //Insert new account
    app.route('/master/insert-account').post(handler.insertAccount);
    
    //Remove account by username
    app.route('/master/remove-account').delete(handler.removeAccount);
+   
+   //Update account
+   app.route('/master/update-account').put(handler.updateAccount);
 };
