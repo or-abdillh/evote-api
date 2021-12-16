@@ -29,5 +29,5 @@ module.exports = (req, res) => {
    };
    
    //Token validation
-   tokenValidation(conn, token, getAccounts);
+   tokenValidation(conn, token, getAccounts, true);
 };

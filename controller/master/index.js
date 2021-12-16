@@ -12,10 +12,12 @@ const index = (req, res) => {
 //import child modules
 const login = require('./modules/login.js');
 const getAccounts = require('./modules/getAccounts.js');
+const insertAccount = require('./modules/insertAccount.js');
 
 //exports
 module.exports = {
    index,
    login,
-   getAccounts
+   getAccounts,
+   insertAccount
 };

@@ -9,8 +9,11 @@ module.exports = (app, handler) => {
    app.route('/master').get(handler.index);
    
    //Login admin
-   app.route('/master/login').post(handler.login)
+   app.route('/master/login').post(handler.login);
    
    //Get all Accounts
    app.route('/master/accounts').post(handler.getAccounts);
-}
+   
+   //Insert new account
+   app.route('/master/insert-account').post(handler.insertAccount);
+};
