@@ -16,4 +16,7 @@ module.exports = (app, handler) => {
    
    //Insert new account
    app.route('/master/insert-account').post(handler.insertAccount);
+   
+   //Remove account by username
+   app.route('/master/remove-account').delete(handler.removeAccount);
 };

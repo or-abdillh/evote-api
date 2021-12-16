@@ -13,11 +13,13 @@ const index = (req, res) => {
 const login = require('./modules/login.js');
 const getAccounts = require('./modules/getAccounts.js');
 const insertAccount = require('./modules/insertAccount.js');
+const removeAccount = require('./modules/removeAccount.js');
 
 //exports
 module.exports = {
    index,
    login,
    getAccounts,
-   insertAccount
+   insertAccount,
+   removeAccount
 };
