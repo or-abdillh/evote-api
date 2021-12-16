@@ -11,9 +11,11 @@ const index = (req, res) => {
 
 //import child modules
 const login = require('./modules/login.js');
+const getAccounts = require('./modules/getAccounts.js');
 
 //exports
 module.exports = {
    index,
-   login
+   login,
+   getAccounts
 };

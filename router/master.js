@@ -10,4 +10,7 @@ module.exports = (app, handler) => {
    
    //Login admin
    app.route('/master/login').post(handler.login)
+   
+   //Get all Accounts
+   app.route('/master/accounts').post(handler.getAccounts);
 }

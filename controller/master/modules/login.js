@@ -28,7 +28,7 @@ module.exports = (req, res) => {
             sql = `UPDATE Accounts SET token = "${token}" WHERE username = "${body.username}"`;
             conn.query(sql, (err, rows) => {
                if (err) response.serverError(res, err);
-               else response.success(res, "Login success"); //Send success response
+               else response.success(res, { token }); //Send success response
             })
          }
          else response.forbidden(res, "username or password invalid or you not an admin");
