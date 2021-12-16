@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "install": "npm i pm2 -g",
-    "start": "pm2 start server.js",
+    "start": "pm2 start server.js --name \"EVOTE REST API\"",
     "dev": "nodemon server.js"
   },
   "keywords": [
