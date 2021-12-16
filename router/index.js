@@ -7,6 +7,10 @@ const controller = require('../controller');
 const generalRouter = require('./general.js');
 const generalController = require('../controller/general');
 
+//Import handler for master purpose
+const masterRouter = require('./master.js');
+const masterController = require('../controller/master');
+
 //Router
 const router = app => {
    
@@ -21,6 +25,9 @@ const router = app => {
    
    //Use generalRouter and generalController
    generalRouter(app, generalController);
+   
+   //Use masterRouter and masterController
+   masterRouter(app, masterController);
 }
 
 //exports
