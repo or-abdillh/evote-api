@@ -4,7 +4,9 @@
   "description": "Application backend for evote-client",
   "main": "server.js",
   "scripts": {
-    "start": "pm2-runtime start ecosystem.config.js"
+    "install": "npm i pm2 -g",
+    "start": "pm2 start server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [
     "API",
@@ -19,10 +21,10 @@
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.15",
-    "pm2": "^5.1.2",
     "random-token": "0.0.8"
   },
   "engines": {
-    "node": "17.2.0"
+    "node": "17.2.0",
+    "npm": "6.14.15"
   }
 }
