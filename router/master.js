@@ -12,7 +12,7 @@ module.exports = (app, handler) => {
    app.route('/master/login').post(handler.login);
    
    //Get all Accounts
-   app.route('/master/accounts').post(handler.getAccounts);
+   app.route('/master/accounts').get(handler.getAccounts);
    
    //Insert new account
    app.route('/master/insert-account').post(handler.insertAccount);
@@ -31,4 +31,7 @@ module.exports = (app, handler) => {
    
    //Get all candidates
    app.route('/master/candidates').get(handler.getCandidates);
+   
+   //insert new candidate
+   app.route('/master/insert-candidate').post(handler.insertCandidate)
 };
