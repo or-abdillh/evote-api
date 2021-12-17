@@ -28,4 +28,7 @@ module.exports = (app, handler) => {
    
    //Update event table
    app.route('/master/update-event').put(handler.updateEvent);
+   
+   //Get all candidates
+   app.route('/master/candidates').get(handler.getCandidates);
 };
