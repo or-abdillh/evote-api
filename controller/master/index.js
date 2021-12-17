@@ -16,6 +16,7 @@ const insertAccount = require('./modules/insertAccount.js');
 const removeAccount = require('./modules/removeAccount.js');
 const updateAccount = require('./modules/updateAccount.js');
 const getEvent = require('./modules/getEvent.js');
+const updateEvent = require('./modules/updateEvent.js');
 
 //exports
 module.exports = {
@@ -25,5 +26,6 @@ module.exports = {
    insertAccount,
    removeAccount,
    updateAccount,
-   getEvent
+   getEvent,
+   updateEvent
 };

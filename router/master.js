@@ -25,4 +25,7 @@ module.exports = (app, handler) => {
    
    //Get event
    app.route('/master/event').get(handler.getEvent);
+   
+   //Update event table
+   app.route('/master/update-event').put(handler.updateEvent);
 };
