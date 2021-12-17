@@ -33,5 +33,8 @@ module.exports = (app, handler) => {
    app.route('/master/candidates').get(handler.getCandidates);
    
    //insert new candidate
-   app.route('/master/insert-candidate').post(handler.insertCandidate)
+   app.route('/master/insert-candidate').post(handler.insertCandidate);
+   
+   //Update candidate
+   app.route('/master/update-candidate').put(handler.updateCandidate);
 };
