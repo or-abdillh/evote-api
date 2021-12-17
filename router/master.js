@@ -12,7 +12,7 @@ module.exports = (app, handler) => {
    app.route('/master/login').post(handler.login);
    
    //Get all Accounts
-   app.route('/master/accounts').get(handler.getAccounts);
+   app.route('/master/accounts').post(handler.getAccounts);
    
    //Insert new account
    app.route('/master/insert-account').post(handler.insertAccount);
@@ -22,4 +22,7 @@ module.exports = (app, handler) => {
    
    //Update account
    app.route('/master/update-account').put(handler.updateAccount);
+   
+   //Get event
+   app.route('/master/event').get(handler.getEvent);
 };
