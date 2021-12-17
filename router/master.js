@@ -37,4 +37,7 @@ module.exports = (app, handler) => {
    
    //Update candidate
    app.route('/master/update-candidate').put(handler.updateCandidate);
+   
+   //Remove candidate
+   app.route('/master/remove-candidate').delete(handler.removeCandidate);
 };

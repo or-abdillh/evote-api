@@ -20,6 +20,7 @@ const updateEvent = require('./modules/updateEvent.js');
 const getCandidates = require('./modules/getCandidates.js');
 const insertCandidate = require('./modules/insertCandidate.js');
 const updateCandidate = require('./modules/updateCandidate.js');
+const removeCandidate = require('./modules/removeCandidate.js');
 
 //exports
 module.exports = {
@@ -33,5 +34,6 @@ module.exports = {
    updateEvent,
    getCandidates,
    insertCandidate,
-   updateCandidate
+   updateCandidate,
+   removeCandidate
 };
