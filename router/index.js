@@ -15,7 +15,7 @@ const masterController = require('../controller/master');
 const router = app => {
    
    //Index route
-   app.route('/').get(controller.index)
+   app.route('/').get(controller.index);
 
    //Token authenication from client
    app.route('/auth').get(controller.auth);
@@ -28,7 +28,7 @@ const router = app => {
    
    //Use masterRouter and masterController
    masterRouter(app, masterController);
-}
+};
 
 //exports
 module.exports = router;
