@@ -22,6 +22,7 @@ const insertCandidate = require('./modules/insertCandidate.js');
 const updateCandidate = require('./modules/updateCandidate.js');
 const removeCandidate = require('./modules/removeCandidate.js');
 const quickCount = require('./modules/quickCount.js');
+const dashboard = require('./modules/dashboard.js');
 
 //exports
 module.exports = {
@@ -37,5 +38,6 @@ module.exports = {
    insertCandidate,
    updateCandidate,
    removeCandidate,
-   quickCount
+   quickCount,
+   dashboard
 };
