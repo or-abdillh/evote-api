@@ -40,4 +40,7 @@ module.exports = (app, handler) => {
    
    //Remove candidate
    app.route('/master/remove-candidate').delete(handler.removeCandidate);
+   
+   //Get quick count data
+   app.route('/master/quick-count').get(handler.quickCount);
 };
